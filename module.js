@@ -1,5 +1,4 @@
-//export const toto = "toto";
-export const toto = "toto"; // export nomme
+//export const toto = "toto"; // export nomme
 
 class Personne {
   constructor(nom, prenom) {

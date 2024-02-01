@@ -5,19 +5,23 @@
 import Express from "express";
 import mongoose from "mongoose";
 import userRouter from "./routes/userRouter.js";
+import "dotenv/config.js";
 
 const app = Express();
 
-app.use(Express.json());
-
 async function connect() {
   try {
-    await mongoose.connect("mongodb://localhost:27017/sample_db", {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    });
+    // Middlewares
+    app.use(Express.json());
 
-    app.use("/user", userRouter);
+    // Connect to MongoDB
+    await mongoose.connect("mongodb://localhost:27017/rpi");
+    console.log("Connected to MongoDB");
+
+    // Routes
+    app.use("/users", userRouter);
+
+    // Start server
     app.listen(3000, () => {
       console.log("Server running on port 3000");
     });
