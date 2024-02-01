@@ -15,7 +15,7 @@ async function connect() {
     app.use(Express.json());
 
     // Connect to MongoDB
-    await mongoose.connect("mongodb://localhost:27017/rpi");
+    await mongoose.connect("mongodb://localhost:27017/sample_db");
     console.log("Connected to MongoDB");
 
     // Routes
